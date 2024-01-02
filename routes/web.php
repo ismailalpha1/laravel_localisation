@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\Localisation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,25 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::prefix('{locale}')
+//     ->middleware(Localisation::class)
+//         ->group(function (){
+            
+//             Route::get('/dashboard', function () {
+//                 return view('dashboard');
+//             })->middleware(['auth', 'verified'])->name('dashboard');
+            
+//             Route::middleware('auth')->group(function () {
+//                 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//                 Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//                 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//             });
+            
+//             require __DIR__.'/auth.php';
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,5 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/landingpage',[HomeController::class,'landing_page']);
 
 require __DIR__.'/auth.php';
