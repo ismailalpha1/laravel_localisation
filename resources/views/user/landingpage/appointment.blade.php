@@ -6,9 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Limmo - Register, Reservation, Questionare, Reviews, Quotation form Multipurpose Wizard with SMTP and HTML email support">
-    <meta name="author" content="Ansonika">
-    <title>Limmo - Register, Reservation, Questionare, Reviews, Quotation form Multipurpose Wizard</title>
+    <meta name="description" content="Landing page">
+    <title>Test landingpage</title>
     
     <!-- GOOGLE WEB FONT -->
     <link rel="preconnect" href="https://fonts.gstatic.com/">
@@ -45,7 +44,7 @@
                     <a data-bs-toggle="offcanvas" href="#offcanvasNav" role="button" class="btn_nav"><i class="bi bi-list"></i></a>
                 </div>
                 <div class="col-4 text-center">
-                    <a href="{{url('/')}}"><img src="#" alt="logo" class="img-fluid" width="95" height="30"></a>
+                    <a href="{{url('/')}}"><img src="{{asset('appointment/img/icon/LOGO-DIGIMPERIAL-SVG.svg')}}" alt="logo" class="img-fluid" width="95" height="30"></a>
                 </div>
             </div>
         </div>
@@ -60,22 +59,72 @@
             <div id="top-wizard">
                 <div id="progressbar"></div>
             </div>
-            <!-- /top-wizard -->
 
-            <form id="wrapped" method="POST">
-                <input id="website" name="website" type="text" value="">
-                <!-- Leave input above for security protection, read docs for details -->
-
+            <form id="wrapped" method="POST" action="#">
                 <div id="middle-wizard">
                     <div class="step">
+					    <div class="question_title">
+					        <h3>Service Selection</h3>
+					        <p>Veillez choisir un service</p>
+					    </div>
+					    <div class="row justify-content-center mt-5">
+					        <div class="col-md-10">
+					            <div class="review_block_smiles">
+					                <ul class="clearfix">
+					                    <li>
+					                        <div class="container_smile" style="width:150px;">
+					                            <input type="radio" id="AI-consulting" name="service" class="required" value="AI consulting">
+					                            <label class="radio" for="AI-consulting"><img src="{{asset('appointment/img/icon/brain.png')}}" alt="AI consulting" style="width:100px"/><span>AI consulting</span></label>
+					                        </div>
+					                    </li>
+					                    <li>
+					                        <div class="container_smile" style="width:150px;">
+					                            <input type="radio" id="Ecommerce" name="service" class="required" value="Ecommerce consulting">
+					                            <label class="radio" for="Ecommerce"><img src="{{asset('appointment/img/icon/ecommerce.png')}}" alt="Ecommerce consulting" style="width:100px;"/><span>Ecommerce consulting</span></label>
+					                        </div>
+					                    </li>
+					                </ul>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+
+                    <div class="step">
+					    <div class="question_title">
+					        <h3>Durée de consultation</h3>
+					        <p>Veillez choisir la durée souhaitable</p>
+					    </div>
+					    <div class="row justify-content-center mt-5">
+					        <div class="col-md-10">
+					            <div class="review_block_smiles">
+					                <ul class="clearfix">
+					                    <li>
+					                        <div class="container_smile" style="width:150px;">
+					                            <input type="radio" id="AI-consulting" name="durée" class="required" value="30min">
+					                            <label class="radio" for="AI-consulting"><span>30 min</span></label>
+					                        </div>
+					                    </li>
+					                    <li>
+					                        <div class="container_smile" style="width:150px;">
+					                            <input type="radio" id="Ecommerce" name="durée" class="required" value="1h">
+					                            <label class="radio" for="Ecommerce"><span>1H</span></label>
+					                        </div>
+					                    </li>
+					                </ul>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+
+                    <div class="step">
                         <div class="question_title">
-                            <h3>Please choose a date!</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
+                            <h3>Veuillez selectionnez une date</h3>
+                            <p>La date que vous choisirerez sera la date de consultation</p>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-7">
                                 <div class="clearfix position-relative mb-3" id="inline-calendar">
-                                    <input type="text" name="dates" id="dates" class="single required" hidden="hidden">
+                                    <input type="text" name="date" id="date" class="single required" hidden="hidden">
                                 </div>
                             </div>
                         </div>
@@ -174,8 +223,8 @@
                 <!-- /middle-wizard -->
 
                 <div id="bottom-wizard">
-                    <button type="button" name="backward" class="backward btn_1">Backward</button>
-                    <button type="button" name="forward" class="forward btn_1 ciao">Forward</button>
+                    <button type="button" name="backward" class="backward btn_1">Précèdent</button>
+                    <button type="button" name="forward" class="forward btn_1 ciao">Suivant</button>
                     <button type="submit" name="process" class="submit btn_1">Submit</button>
                 </div>
                 <!-- /bottom-wizard -->
